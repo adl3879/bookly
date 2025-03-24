@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "PG Local",
+            "connectString": "postgresql://citizix_user:S3cret@localhost:5432/booklydb",
+            "connectionTimeout": 30
+        }
+    ]
+}
