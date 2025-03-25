@@ -1,0 +1,44 @@
+### Get all books
+GET http://localhost:8000/api/v1/books/
+Content-Type: application/json
+
+###
+
+### Create a new book
+POST http://localhost:8000/api/v1/books/
+Content-Type: application/json
+
+{
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "publisher": "J.B. Lippincott & Co.",
+    "published_date": "1960-07-11",
+    "page_count": 281,
+    "language": "English"
+}
+
+###
+
+### Get a book by UID
+GET http://localhost:8000/api/v1/books/1
+Content-Type: application/json
+
+###
+
+### Update a book
+PATCH http://localhost:8000/api/v1/books/c6e06d7b-52f2-48f0-89f7-ee1ea030aa36
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby - Updated",
+  "author": "F. Scott Fitzgerald",
+  "publisher": "Scribner",
+  "page_count": "220",
+  "language": "English"
+}
+
+###
+
+### Delete a book
+DELETE http://localhost:8000/api/v1/books/c36f179a-ce6a-4faa-ad0e-ec2c807522e7
+Content-Type: application/json
