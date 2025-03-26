@@ -1,12 +1,18 @@
+
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoibW1AdGVzdC5jb20iLCJ1c2VyX3VpZCI6ImY3NTlmOGMzLTljMWMtNDk5MC05MWVmLWU0ODViNmVkODg2ZCJ9LCJleHAiOjE3NDI5NDgyODYsImp0aSI6IjgyNGI1MTMwLWQxMjEtNDc2YS1hMmVjLWQ3ODM0ODZkM2E1ZCIsInJlZnJlc2giOmZhbHNlfQ.dQ-jCAqUGJ4aonAgh6NlDvFaR-3fmoq3gNAX9bzVfT8
+
+
 ### Get all books
 GET http://localhost:8000/api/v1/books/
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 ###
 
 ### Create a new book
 POST http://localhost:8000/api/v1/books/
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 {
     "title": "To Kill a Mockingbird",
@@ -22,18 +28,20 @@ Content-Type: application/json
 ### Get a book by UID
 GET http://localhost:8000/api/v1/books/1
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 ###
 
 ### Update a book
 PATCH http://localhost:8000/api/v1/books/c6e06d7b-52f2-48f0-89f7-ee1ea030aa36
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
 
 {
   "title": "The Great Gatsby - Updated",
   "author": "F. Scott Fitzgerald",
   "publisher": "Scribner",
-  "page_count": "220",
+  "page_count": 220,
   "language": "English"
 }
 
@@ -42,3 +50,4 @@ Content-Type: application/json
 ### Delete a book
 DELETE http://localhost:8000/api/v1/books/c36f179a-ce6a-4faa-ad0e-ec2c807522e7
 Content-Type: application/json
+Authorization: Bearer {{access_token}}
