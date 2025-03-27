@@ -8,5 +8,6 @@
             "connectString": "postgresql://citizix_user:S3cret@localhost:5432/booklydb",
             "connectionTimeout": 30
         }
-    ]
+    ],
+    "python.analysis.typeCheckingMode": "basic"
 }

@@ -3,7 +3,7 @@ from datetime import datetime
 import uuid
 
 
-class Book(BaseModel):
+class BookModel(BaseModel):
     uid: uuid.UUID
     title: str
     author: str

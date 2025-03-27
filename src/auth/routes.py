@@ -6,11 +6,17 @@ from .service import UserService
 from .utils import create_access_token, decode_token, verify_password
 from fastapi.responses import JSONResponse
 from datetime import timedelta, datetime
-from .dependencies import RefreshTokenBearer, AccessTokenBearer, get_current_user
+from .dependencies import (
+    RefreshTokenBearer,
+    AccessTokenBearer,
+    get_current_user,
+    RoleChecker,
+)
 from src.db.redis import add_jti_to_blocklist
 
 auth_router = APIRouter()
 user_service = UserService()
+role_checker = RoleChecker(["admin", "user"])
 
 REFRESH_TOKEN_EXPIRY = 2
 
@@ -50,7 +56,11 @@ async def login_user(
 
         if password_valid:
             access_token = create_access_token(
-                user_data={"email": user.email, "user_uid": str(user.uid)}
+                user_data={
+                    "email": user.email,
+                    "user_uid": str(user.uid),
+                    "role": user.role,
+                }
             )
 
             refresh_token = create_access_token(
@@ -90,8 +100,8 @@ async def get_new_access_token(token_details: dict = Depends(RefreshTokenBearer(
     )
 
 
-@auth_router.get("/me")
-async def get_current_user(user=Depends(get_current_user)):
+@auth_router.get("/me", response_model=UserModel)
+async def get_me(user=Depends(get_current_user), _=Depends(role_checker)):
     return user
 
 
