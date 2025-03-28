@@ -20,7 +20,9 @@ def verify_password(password: str, hash: str) -> bool:
     return passwd_context.verify(password, hash)
 
 
-def create_access_token(user_data: dict, expiry: timedelta = None, refresh=False):
+def create_access_token(
+    user_data: dict, expiry: timedelta | None = None, refresh=False
+):
     payload = {}
 
     payload["user"] = user_data
@@ -46,4 +48,4 @@ def decode_token(token: str) -> dict:
         return token_data
     except jwt.PyJWTError as e:
         logging.exception(e)
-        return None
+        return {}

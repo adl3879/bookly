@@ -1,4 +1,4 @@
-from .models import User
+from src.db.models import User
 from sqlmodel.ext.asyncio.session import AsyncSession
 from sqlmodel import select
 from .schemas import UserCreateModel
@@ -18,7 +18,7 @@ class UserService:
     async def user_exists(self, email, session: AsyncSession):
         user = await self.get_user_by_email(email, session)
 
-        return True if user is not None else False
+        return user is not None
 
     async def create_user(self, user_data: UserCreateModel, session: AsyncSession):
         user_data_dict = user_data.model_dump()

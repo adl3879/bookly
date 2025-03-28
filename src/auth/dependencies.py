@@ -5,7 +5,7 @@ from src.db.redis import token_in_blocklist
 from src.db.main import get_session
 from sqlmodel.ext.asyncio.session import AsyncSession
 from .service import UserService
-from .models import User
+from src.db.models import User
 
 user_service = UserService()
 
@@ -18,7 +18,8 @@ class TokenBearer(HTTPBearer):
     async def __call__(self, request: Request):
         credentials = await super().__call__(request)
 
-        token = credentials.credentials
+        if credentials:
+            token = credentials.credentials
 
         token_data = decode_token(token)
 
@@ -76,7 +77,7 @@ class RefreshTokenBearer(TokenBearer):
 async def get_current_user(
     token_details: dict = Depends(AccessTokenBearer()),
     session: AsyncSession = Depends(get_session),
-) -> User:
+):
     user_email = token_details["user"]["email"]
 
     user = await user_service.get_user_by_email(user_email, session)

@@ -1,5 +1,5 @@
 
-@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoibW1AdGVzdC5jb20iLCJ1c2VyX3VpZCI6ImY3NTlmOGMzLTljMWMtNDk5MC05MWVmLWU0ODViNmVkODg2ZCJ9LCJleHAiOjE3NDMwMjg3MjIsImp0aSI6ImFlN2M3YjZjLWQ0YjUtNGFlMy1hM2IxLWU2YzVmMmRjMWI2NyIsInJlZnJlc2giOmZhbHNlfQ._wa5ZNSyCUz2rAjXhAvrbtBDAkd6-_rX4EXs6nFZXFw
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoibW1AdGVzdC5jb20iLCJ1c2VyX3VpZCI6ImY3NTlmOGMzLTljMWMtNDk5MC05MWVmLWU0ODViNmVkODg2ZCJ9LCJleHAiOjE3NDMwNDUxODYsImp0aSI6ImRhNmNjNzcyLWU0OWMtNGVmYi1hM2NiLWE0MTIxZjIzM2I2NCIsInJlZnJlc2giOmZhbHNlfQ.BlIkjDt5dfobrJP-Eyb8e_v1BEykkg8tI7cPrThQubM
 
 
 ### Get all books
@@ -17,11 +17,11 @@ Content-Type: application/json
 Authorization: Bearer {{access_token}}
 
 {
-    "title": "1984",
-    "author": "George Orwell",
-    "publisher": "Secker & Warburg",
-    "published_date": "1949-06-08",
-    "page_count": 328,
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "publisher": "Chatto & Windus",
+    "published_date": "1932-08-18",
+    "page_count": 311,
     "language": "English"
 }
 
