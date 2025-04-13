@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from src.db.models import User
 from src.db.main import get_session
 from sqlmodel.ext.asyncio.session import AsyncSession
-from .schemas import ReviewCreateModel, ReviewModel
+from .schemas import ReviewCreateModel 
 from src.auth.dependencies import AccessTokenBearer
 from .service import ReviewService
 
